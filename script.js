@@ -94,6 +94,9 @@ document.addEventListener("click", (event) => {
 const mobileViewport = window.matchMedia("(max-width: 640px)");
 mobileViewport.addEventListener("change", () => setMenuOpen(false));
 
+// Hide the mobile links only after their menu controls are ready.
+document.documentElement.classList.add("js-enabled");
+
 if ("IntersectionObserver" in window) {
   const sectionObserver = new IntersectionObserver((entries) => {
     const currentSection = entries.find((entry) => entry.isIntersecting);
